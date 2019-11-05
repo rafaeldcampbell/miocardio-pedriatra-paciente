@@ -14,18 +14,21 @@ class QuestionsPageState extends State<QuestionsPage> {
           padding: EdgeInsets.all(5),
           itemBuilder: (BuildContext context, int index) {
             if (index == 0) {
-              return Text(
-                'Perguntas Frequentes',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+              return Container(
+                padding: EdgeInsets.only(top: 30, bottom: 10),
+                child: Text(
+                  'Perguntas Frequentes',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               );
             } else {
               return Card(
-                child: EntryItem(data[index-1]),
+                child: EntryItem(data[index - 1]),
               );
             }
           }),
