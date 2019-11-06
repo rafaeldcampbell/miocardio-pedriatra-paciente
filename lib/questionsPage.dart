@@ -1,25 +1,38 @@
 import 'package:flutter/material.dart';
 
-class QuestionsPage extends StatefulWidget{
+class QuestionsPage extends StatefulWidget {
   QuestionsPageState createState() => QuestionsPageState();
-
 }
-class QuestionsPageState extends State<QuestionsPage>{
 
+class QuestionsPageState extends State<QuestionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            backgroundColor: Color.fromRGBO(253, 224, 224, 1),
-            
-            body: ListView.builder(
-                itemCount: data.length,
-                padding: EdgeInsets.all(5),
-                itemBuilder: (BuildContext context, int index) =>
-                Card(
-                  child: EntryItem(data[index]),
+      backgroundColor: Color.fromRGBO(253, 224, 224, 1),
+      body: ListView.builder(
+          itemCount: data.length + 1,
+          padding: EdgeInsets.all(5),
+          itemBuilder: (BuildContext context, int index) {
+            if (index == 0) {
+              return Container(
+                padding: EdgeInsets.only(top: 30, bottom: 10),
+                child: Text(
+                  'Perguntas Frequentes',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-            ),
-      );
+              );
+            } else {
+              return Card(
+                child: EntryItem(data[index - 1]),
+              );
+            }
+          }),
+    );
   }
 }
 
@@ -44,7 +57,8 @@ final List<Entry> data = <Entry>[
   Entry(
     'O que é miocardite?',
     <Entry>[
-      Entry('É a inflamação do músculo do coração, chamado de miocárdio. Esse músculo é responsável pela contração do coração e a inflamação prejudica a ação de bombeamento do sangue provocando arritmias e insuficiência cardíaca. Seu tempo de duração depende da causa da inflamação e do estado de saúde do paciente.'),
+      Entry(
+          'É a inflamação do músculo do coração, chamado de miocárdio. Esse músculo é responsável pela contração do coração e a inflamação prejudica a ação de bombeamento do sangue provocando arritmias e insuficiência cardíaca. Seu tempo de duração depende da causa da inflamação e do estado de saúde do paciente.'),
     ],
   ),
   Entry(
@@ -62,7 +76,7 @@ final List<Entry> data = <Entry>[
   Entry(
     'O que é cardiopatia congênita?',
     <Entry>[
-      Entry('Section C0'),
+      Entry('Section D0'),
     ],
   ),
 ];
