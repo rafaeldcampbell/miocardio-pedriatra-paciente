@@ -8,13 +8,17 @@ Do projeto original, foram pré-concebidas duas aplicações independentes que c
 Do grupo original, composto por 6 integrantes, foram separados dois grupos de 3; cada grupo seria responsável por uma aplicação. O grupo responsável pela aplicação **Paciente** é composto por:
 
 * [Aline](https://github.com/Alines009)
+
 * [João](https://github.com/JGuerra97)
+
 * [Rafael](http://github.com/rafaeldcampbell)
+
 
 O projeto deste aplicativo inclui 3 principais componentes, que deverão ser desenvolvidos ao longo do projeto:
 
 * **Lembrete**: permitir gerenciar medicações e receber notificações de lembrete.
+
 * **Informações**: disponibilizar não só uma página padrão com práticas recomendadas e contraindicadas, mas também perguntas frequentes.
-* **Exames**: permitir acompanhar os exames submetidos.
+
 
 O gerenciamento das novas funcionalidades, *bugs* e tarefas no geral será todo feito pelo próprio Github, na aba de [**issues**](https://github.com/rafaeldcampbell/miocardio-pedriatra-paciente/issues). Os padrões de projeto adotados e demais informações relevantes serão incluídas ao projeto pela aba [**wiki**](https://github.com/rafaeldcampbell/miocardio-pedriatra-paciente/wiki).
