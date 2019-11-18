@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miocardio_paciente/generated/i18n.dart';
 
 class QuestionsPage extends StatefulWidget {
   QuestionsPageState createState() => QuestionsPageState();
@@ -7,6 +8,7 @@ class QuestionsPage extends StatefulWidget {
 class QuestionsPageState extends State<QuestionsPage> {
   @override
   Widget build(BuildContext context) {
+    final List<Entry> data = EntryData.getData(context);
     return Scaffold(
       backgroundColor: Color.fromRGBO(253, 224, 224, 1),
       body: ListView.builder(
@@ -17,7 +19,7 @@ class QuestionsPageState extends State<QuestionsPage> {
               return Container(
                 padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: Text(
-                  'Perguntas Frequentes',
+                  S.of(context).pagetitleAsk,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -44,42 +46,45 @@ class Entry {
   final List<Entry> children;
 }
 
-// The entire multilevel list displayed by this app.
-final List<Entry> data = <Entry>[
-  Entry(
-    'Diferença entre miocardia e miocardite',
-    <Entry>[
-      Entry(
-        'Section A0',
-      ),
-    ],
-  ),
-  Entry(
-    'O que é miocardite?',
-    <Entry>[
-      Entry(
-          'É a inflamação do músculo do coração, chamado de miocárdio. Esse músculo é responsável pela contração do coração e a inflamação prejudica a ação de bombeamento do sangue provocando arritmias e insuficiência cardíaca. Seu tempo de duração depende da causa da inflamação e do estado de saúde do paciente.'),
-    ],
-  ),
-  Entry(
-    'O que miocardiopatia isquêmica?',
-    <Entry>[
-      Entry('Section B0'),
-    ],
-  ),
-  Entry(
-    'O que causa a inflamação no miocárdio?',
-    <Entry>[
-      Entry('Section C0'),
-    ],
-  ),
-  Entry(
-    'O que é cardiopatia congênita?',
-    <Entry>[
-      Entry('Section D0'),
-    ],
-  ),
-];
+class EntryData{
+
+  static List<Entry> getData(BuildContext context){
+  // The entire multilevel list displayed by this app.
+  return <Entry>[
+            Entry(
+              S.of(context).askQuestion01,
+              <Entry>[
+                Entry(S.of(context).askAnswer01),
+              ],
+            ),
+            Entry(
+              S.of(context).askQuestion02,
+              <Entry>[
+                Entry(S.of(context).askAnswer02),
+              ],
+            ),
+            Entry(
+              S.of(context).askQuestion03,
+              <Entry>[
+                Entry(S.of(context).askAnswer03),
+              ],
+            ),
+            Entry(
+              S.of(context).askQuestion04,
+              <Entry>[
+                Entry(S.of(context).askAnswer04),
+              ],
+            ),
+            Entry(
+              S.of(context).askQuestion05,
+              <Entry>[
+                Entry(S.of(context).askAnswer05),
+              ],
+            ),
+          ];
+  }
+}
+
 
 // Displays one Entry. If the entry has children then it's displayed
 // with an ExpansionTile.

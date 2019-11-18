@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:miocardio_paciente/questionsPage.dart';
-import 'package:miocardio_paciente/home.dart';
-import 'package:miocardio_paciente/info.dart';
-import 'package:miocardio_paciente/reminderPage.dart';
+import 'package:miocardio_paciente/pages/questionsPage.dart';
+import 'package:miocardio_paciente/pages/home.dart';
+import 'package:miocardio_paciente/pages/info.dart';
+import 'package:miocardio_paciente/pages/reminderPage.dart';
+import 'package:miocardio_paciente/generated/i18n.dart';
 
 //Classe responsável somente pelo NavigationBottomBar
 //Essa classe chama a renderização das outras abas (classes states)
@@ -35,19 +36,19 @@ class _HomeState extends State<NavigationBar> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
-            title: new Text('Home'),
+            title: new Text(S.of(context).navBarHome,),
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.help_outline),
-            title: new Text('Perguntas'),
+            title: new Text(S.of(context).navBarAsk),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.alarm),
-            title: Text('Lembretes'),
+            title: Text(S.of(context).navBarReminder),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info_outline),
-            title: Text("Info"),
+            title: Text(S.of(context).navBarInfo),
           ),
         ],
       ),
