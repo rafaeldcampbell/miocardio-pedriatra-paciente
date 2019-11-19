@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:miocardio_paciente/generated/i18n.dart';
+import 'package:miocardio_paciente/localization.dart' show Localization;
 
 class Info extends StatefulWidget {
   InfoState createState() => InfoState();
@@ -8,6 +8,7 @@ class Info extends StatefulWidget {
 class InfoState extends State<Info> {
   @override
   Widget build(BuildContext context) {
+    var localization = Localization.of(context);
     return Scaffold(
       backgroundColor: Color.fromRGBO(253, 224, 224, 1),
       body: ListView.builder(
@@ -16,7 +17,7 @@ class InfoState extends State<Info> {
           itemBuilder: (BuildContext context, int index) => Container(
                 padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: Text(
-                  S.of(context).pagetitleInfo,
+                  localization.trans('pagetitleInfo'),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,

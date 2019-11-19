@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:miocardio_paciente/pages/login.dart';
-import 'package:miocardio_paciente/generated/i18n.dart';
+import 'package:miocardio_paciente/localization.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,11 +11,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       localizationsDelegates: [
-          S.delegate,
+          const LocalizationDelegate(),
           GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
         ],
-      supportedLocales: S.delegate.supportedLocales,
+      supportedLocales: [
+        const Locale('en'),
+        const Locale('pt'),
+      ],
       title: 'Miocardio Pediatra',
       theme: ThemeData(
         primarySwatch: Colors.blue,

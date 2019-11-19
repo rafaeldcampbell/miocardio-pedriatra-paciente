@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:miocardio_paciente/generated/i18n.dart';
+import 'package:miocardio_paciente/localization.dart' show Localization;
 
 class QuestionsPage extends StatefulWidget {
   QuestionsPageState createState() => QuestionsPageState();
@@ -8,6 +8,7 @@ class QuestionsPage extends StatefulWidget {
 class QuestionsPageState extends State<QuestionsPage> {
   @override
   Widget build(BuildContext context) {
+    var localization = Localization.of(context);
     final List<Entry> data = EntryData.getData(context);
     return Scaffold(
       backgroundColor: Color.fromRGBO(253, 224, 224, 1),
@@ -19,7 +20,7 @@ class QuestionsPageState extends State<QuestionsPage> {
               return Container(
                 padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: Text(
-                  S.of(context).pagetitleAsk,
+                  localization.trans('pagetitleAsk'),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -50,35 +51,36 @@ class EntryData{
 
   static List<Entry> getData(BuildContext context){
   // The entire multilevel list displayed by this app.
+  var localization = Localization.of(context);
   return <Entry>[
             Entry(
-              S.of(context).askQuestion01,
+              localization.trans('askQuestion01'),
               <Entry>[
-                Entry(S.of(context).askAnswer01),
+                Entry(localization.trans('askAnswer01')),
               ],
             ),
             Entry(
-              S.of(context).askQuestion02,
+              localization.trans('askQuestion02'),
               <Entry>[
-                Entry(S.of(context).askAnswer02),
+                Entry(localization.trans('askAnswer02')),
               ],
             ),
             Entry(
-              S.of(context).askQuestion03,
+              localization.trans('askQuestion03'),
               <Entry>[
-                Entry(S.of(context).askAnswer03),
+                Entry(localization.trans('askAnswer03')),
               ],
             ),
             Entry(
-              S.of(context).askQuestion04,
+              localization.trans('askQuestion04'),
               <Entry>[
-                Entry(S.of(context).askAnswer04),
+                Entry(localization.trans('askAnswer04')),
               ],
             ),
             Entry(
-              S.of(context).askQuestion05,
+              localization.trans('askQuestion05'),
               <Entry>[
-                Entry(S.of(context).askAnswer05),
+                Entry(localization.trans('askAnswer05')),
               ],
             ),
           ];
