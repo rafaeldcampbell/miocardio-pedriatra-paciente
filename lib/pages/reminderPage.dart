@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:miocardio_paciente/localization.dart' show Localization;
 
-class Info extends StatefulWidget {
-  InfoState createState() => InfoState();
+class ReminderPage extends StatefulWidget {
+  ReminderPageState createState() => ReminderPageState();
 }
 
-class InfoState extends State<Info> {
+class ReminderPageState extends State<ReminderPage> {
   @override
   Widget build(BuildContext context) {
+    var localization = Localization.of(context);
     return Scaffold(
       backgroundColor: Color.fromRGBO(253, 224, 224, 1),
       body: ListView.builder(
@@ -15,7 +17,7 @@ class InfoState extends State<Info> {
           itemBuilder: (BuildContext context, int index) => Container(
                 padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: Text(
-                  'Info',
+                  localization.trans('pagetitleReminder'),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
