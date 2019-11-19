@@ -1,5 +1,4 @@
 { 
-    "updateGenLang": "flutter pub run gen_lang:generate",
     "navBarHome": "Home",
     "navBarAsk" : "Ask",
     "navBarReminder" : "Reminder",
