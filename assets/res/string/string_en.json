@@ -18,11 +18,4 @@
     "askAnswer04" : "Reduced blood pumping capacity may lead to cardiac arrhythmias. In more complex cases there may be clot formation in the heart leading to a stroke or infarction.\n", 
     "askQuestion05" : "Which tests can be underdiagnosed?",
     "askAnswer05" : "   * CBC is nonspecific and may be normal\n   * Echocardiogram may be normal\n",
-
-    "loginMailHint" : "Email",
-    "loginPasswordHint" : "Password",
-    "loginButton" : "Sign in",
-    "loginWarningMailIncorrect" : "Incorrect email!",
-    "loginWarningPasswordIncorrect" : "Incorrect password!",
-    "loginWarningBothIncorrect" : "Both email and password are incorrect!"
 }

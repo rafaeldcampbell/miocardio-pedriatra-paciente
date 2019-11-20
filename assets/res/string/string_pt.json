@@ -19,10 +19,4 @@
     "askQuestion05" : "Quais exames podem ser subdiagnosticados?",
     "askAnswer05" : "   * O hemograma é inespecífico e pode estar normal\n  * O ecocardiograma pode ser normal\n ", 
 
-    "loginMailHint" : "Email",
-    "loginPasswordHint" : "Senha",
-    "loginButton" : "Entrar",
-    "loginWarningMailIncorrect" : "O email está incorreto!",
-    "loginWarningPasswordIncorrect" : "A senha está incorreta!",
-    "loginWarningBothIncorrect" : "O email e a senha estão incorretos!"
 }
