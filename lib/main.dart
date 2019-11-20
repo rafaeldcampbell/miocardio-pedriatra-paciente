@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:miocardio_paciente/pages/login.dart';
-import 'package:miocardio_paciente/localization.dart';
+import 'package:miocardio_paciente/functions/navigatorBar.dart';
+import 'package:miocardio_paciente/functions/localization.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: NavigationBar(),
     );
   }
 }
