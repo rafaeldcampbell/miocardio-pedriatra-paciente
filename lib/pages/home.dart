@@ -20,6 +20,7 @@ class HomeState extends State<Home>{
                 padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: Text(
                   localization.trans('pagetitleHome'),
+                  key: Key("pagetitleHome"),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,

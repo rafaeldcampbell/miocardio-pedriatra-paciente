@@ -18,6 +18,7 @@ class InfoState extends State<Info> {
                 padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: Text(
                   localization.trans('pagetitleInfo'),
+                  key : Key("pagetitleInfo"),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,

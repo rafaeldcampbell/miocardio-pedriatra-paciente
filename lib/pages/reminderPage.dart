@@ -18,6 +18,7 @@ class ReminderPageState extends State<ReminderPage> {
                 padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: Text(
                   localization.trans('pagetitleReminder'),
+                  key: Key("pagetitleReminder"),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,

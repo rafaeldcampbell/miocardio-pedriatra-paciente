@@ -36,6 +36,7 @@ class LoginState extends State<Login>{
             shape: Border.all(width: 0.5, color: Colors.red),
             color: Color.fromRGBO(249, 124, 124, 1),
             child: Text(localization.trans('loginButton'),
+              key: Key("loginButton"),
               style: TextStyle(
                 color: Colors.white,
               ),

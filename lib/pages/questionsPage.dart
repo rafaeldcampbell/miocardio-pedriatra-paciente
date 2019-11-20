@@ -21,6 +21,7 @@ class QuestionsPageState extends State<QuestionsPage> {
                 padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: Text(
                   localization.trans('pagetitleAsk'),
+                  key: Key("pagetitleAsk"),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
