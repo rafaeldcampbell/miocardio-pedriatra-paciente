@@ -1,35 +1,24 @@
 ## MiocardioPediatra
+### Aplica√ß√£o para pacientes
 
-### AplicaÁ„o para pacientes
+Como parte da cadeira de *Engenharia de Software II* do bacharelado de Ci√™ncia da Computa√ß√£o na **Universidade Federal Fluminense (UFF)**, cada grupo deve desenvolver um projeto.  O projeto escolhido pelo grupo foi o **MiocardioPediatra**.
 
+Do projeto original, foram pr√©-concebidas duas aplica√ß√µes independentes que comporiam o sistema. Essas aplica√ß√µes seriam, em suma, uma voltada para o m√©dico (que est√° fazendo o acompanhamento de pacientes) e outra para os pacientes (que est√£o sendo acompanhados).
 
-
-Como parte da cadeira de *Engenharia de Software II* do bacharelado de CiÍncia da ComputaÁ„o na **Universidade Federal Fluminense (UFF)**, cada grupo deve desenvolver um projeto.  O projeto escolhido pelo grupo foi o **MiocardioPediatra**.
-
-
-
-Do projeto original, foram prÈ-concebidas duas aplicaÁıes independentes que comporiam o sistema. Essas aplicaÁıes seriam, em suma, uma voltada para o mÈdico (que est· fazendo o acompanhamento de pacientes) e outra para os pacientes (que est„o sendo acompanhados).
-
-
-
-Do grupo original, composto por 6 integrantes, foram separados dois grupos de 3; cada grupo seria respons·vel por uma aplicaÁ„o. O grupo respons·vel pela aplicaÁ„o **Paciente** È composto por:
-
-
+Do grupo original, composto por 6 integrantes, foram separados dois grupos de 3; cada grupo seria respons√°vel por uma aplica√ß√£o. O grupo respons√°vel pela aplica√ß√£o **Paciente** √© composto por:
 
 * [Aline](https://github.com/Alines009)
 
-* [Jo„o](https://github.com/JGuerra97)
+* [Jo√£o](https://github.com/JGuerra97)
 
 * [Rafael](http://github.com/rafaeldcampbell)
 
 
+O projeto deste aplicativo inclui 3 principais componentes, que dever√£o ser desenvolvidos ao longo do projeto:
 
-O projeto deste aplicativo inclui 3 principais componentes, que dever„o ser desenvolvidos ao longo do projeto:
+* **Lembrete**: permitir gerenciar medica√ß√µes e receber notifica√ß√µes de lembrete.
+
+* **Informa√ß√µes**: disponibilizar n√£o s√≥ uma p√°gina padr√£o com pr√°ticas recomendadas e contraindicadas, mas tamb√©m perguntas frequentes.
 
 
-
-* **Lembrete**: permitir gerenciar medicaÁıes e receber notificaÁıes de lembrete.
-
-* **InformaÁıes**: disponibilizar n„o sÛ uma p·gina padr„o com pr·ticas recomendadas e contraindicadas, mas tambÈm perguntas frequentes.
-7
-* **Exames**: permitir acompanhar os exames submetidos.
+O gerenciamento das novas funcionalidades, *bugs* e tarefas no geral ser√° todo feito pelo pr√≥prio Github, na aba de [**issues**](https://github.com/rafaeldcampbell/miocardio-pedriatra-paciente/issues). Os padr√µes de projeto adotados e demais informa√ß√µes relevantes ser√£o inclu√≠das ao projeto pela aba [**wiki**](https://github.com/rafaeldcampbell/miocardio-pedriatra-paciente/wiki).

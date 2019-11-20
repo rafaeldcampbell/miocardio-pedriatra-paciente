@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "112440669218",
+    "firebase_url": "https://miocardiopediatra-paciente.firebaseio.com",
+    "project_id": "miocardiopediatra-paciente",
+    "storage_bucket": "miocardiopediatra-paciente.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112440669218:android:f3957fc3d45bad82bdc67b",
+        "android_client_info": {
+          "package_name": "com.example.miocardio_paciente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112440669218-tglhudkpsumu7ehdid1ljm7jtronendv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1EkhwPxJmetcGemS5QpVrX_J4i0gAG3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112440669218-tglhudkpsumu7ehdid1ljm7jtronendv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

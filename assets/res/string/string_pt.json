@@ -1,0 +1,28 @@
+{ 
+    "navBarHome": "Inicial",
+    "navBarAsk" : "Perguntas",
+    "navBarReminder" : "Lembretes",
+    "navBarInfo" : "Info",
+    "pagetitleHome": "Inicial",
+    "pagetitleAsk": "Perguntas frequentes",
+    "pagetitleReminder": "Lembretes",
+    "pagetitleInfo": "Informações",
+
+    "askQuestion01" : "Qual a diferença entre miocardia e miocardite?",
+    "askAnswer01" : "Section 01", 
+    "askQuestion02" : "O que é miocardite?",
+    "askAnswer02" : "É a inflamação do músculo do coração, chamado de miocárdio. Esse músculo é responsável pela contração do coração e a inflamação prejudica a ação de bombeamento do sangue provocando arritmias e insuficiência cardíaca. Seu tempo de duração depende da causa da inflamação e do estado de saúde do paciente.", 
+    "askQuestion03" : "O que miocardiopatia isquêmica?",
+    "askAnswer03" : "Section 03", 
+    "askQuestion04" : "O que causa a inflamação no miocárdio?",
+    "askAnswer04" : "Section 04", 
+    "askQuestion05" : "O que é cardiopatia congênita?",
+    "askAnswer05" : "Section 05", 
+
+    "loginMailHint" : "Email",
+    "loginPasswordHint" : "Senha",
+    "loginButton" : "Entrar",
+    "loginWarningMailIncorrect" : "O email está incorreto!",
+    "loginWarningPasswordIncorrect" : "A senha está incorreta!",
+    "loginWarningBothIncorrect" : "O email e a senha estão incorretos!"
+}
