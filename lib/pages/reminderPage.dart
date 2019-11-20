@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:miocardio_paciente/localization.dart' show Localization;
+import 'package:miocardio_paciente/functions/localization.dart' show Localization;
 
 class ReminderPage extends StatefulWidget {
   ReminderPageState createState() => ReminderPageState();
