@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:miocardio_paciente/questionsPage.dart';
-import 'package:miocardio_paciente/home.dart';
-import 'package:miocardio_paciente/info.dart';
-import 'package:miocardio_paciente/reminderPage.dart';
+import 'package:miocardio_paciente/pages/questionsPage.dart';
+import 'package:miocardio_paciente/pages/home.dart';
+import 'package:miocardio_paciente/pages/info.dart';
+import 'package:miocardio_paciente/pages/reminderPage.dart';
+import 'package:miocardio_paciente/localization.dart' show Localization;
 
 //Classe responsável somente pelo NavigationBottomBar
 //Essa classe chama a renderização das outras abas (classes states)
@@ -25,6 +26,7 @@ class _HomeState extends State<NavigationBar> {
 
   @override
   Widget build(BuildContext context) {
+    var localization = Localization.of(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: _children[_currentIndex], //Corpo correspondente ao widget que será amostrado
@@ -32,22 +34,23 @@ class _HomeState extends State<NavigationBar> {
         type: BottomNavigationBarType.fixed,
         onTap:onTabTapped, //Chama OnTabTapped que pega o index da aba que é tocada
         currentIndex: _currentIndex, //Widget que será renderizado
+        key: Key('navigationBar'),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-            title: new Text('Home'),
+            icon: new Icon(Icons.home, key: Key('navigationHome')),
+            title: new Text(localization.trans('navBarHome'),),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.help_outline),
-            title: new Text('Perguntas'),
+            icon: new Icon(Icons.help_outline, key: Key('navigationAsk')),
+            title: new Text(localization.trans('navBarAsk')),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.alarm),
-            title: Text('Lembretes'),
+            icon: Icon(Icons.alarm, key: Key('navigationReminder')),
+            title: Text(localization.trans('navBarReminder')),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info_outline),
-            title: Text("Info"),
+            icon: Icon(Icons.info_outline, key: Key('navigationInfo')),
+            title: Text(localization.trans('navBarInfo')),
           ),
         ],
       ),
