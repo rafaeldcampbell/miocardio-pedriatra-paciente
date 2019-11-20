@@ -4,75 +4,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:miocardio_paciente/localization.dart';
 import 'package:miocardio_paciente/pages/home.dart';
 import 'package:miocardio_paciente/pages/info.dart';
-import 'package:miocardio_paciente/pages/login.dart';
 import 'package:miocardio_paciente/pages/questionsPage.dart';
 import 'package:miocardio_paciente/pages/reminderPage.dart';
 
 void main() {
 // É necessário que, a cada alteração feita nos arquivos string_en e string_pt,
 // seja feita uma atualização das verificações
-
-  testWidgets('Testando login (portugues)', (WidgetTester tester) async {
-    await tester.runAsync(() async {
-      Widget widget = MediaQuery(
-                                  data: MediaQueryData(),
-                                  child: MaterialApp(
-                                    localizationsDelegates: [
-                                      LocalizationDelegate(isTest: true, testLocale : Locale('pt')), 
-                                      GlobalMaterialLocalizations.delegate, 
-                                      GlobalWidgetsLocalizations.delegate,
-                                    ],
-                                    home: Login(),
-                                  ),
-                                );
-      // constroi o widget
-      await tester.pumpWidget(widget);
-      await tester.idle();
-      await tester.pumpAndSettle();
-    
-      // Busca e vrificando campos
-      Finder email = find.text('Email');
-      Finder password = find.text('Senha');
-      expect(email, findsOneWidget);
-      expect(password, findsOneWidget);
-
-      //Busca e verifica o botão
-      Finder button = find.text("Entrar");
-      expect(button, findsOneWidget);
-      print("-------------------------------- APROVADO");
-    });
-  });
-
-  testWidgets('Testando login (ingles)', (WidgetTester tester) async {
-    await tester.runAsync(() async {
-      Widget widget = MediaQuery(
-                                  data: MediaQueryData(),
-                                  child: MaterialApp(
-                                    localizationsDelegates: [
-                                      LocalizationDelegate(isTest: true, testLocale : Locale('en')), 
-                                      GlobalMaterialLocalizations.delegate, 
-                                      GlobalWidgetsLocalizations.delegate,
-                                    ],
-                                    home: Login(),
-                                  ),
-                                );
-      // constroi o widget
-      await tester.pumpWidget(widget);
-      await tester.idle();
-      await tester.pumpAndSettle();
-    
-      // Busca e vrificando campos
-      Finder email = find.text('Email');
-      Finder password = find.text('Password');
-      expect(email, findsOneWidget);
-      expect(password, findsOneWidget);
-
-      //Busca e verifica o botão
-      Finder button = find.text("Sign in");
-      expect(button, findsOneWidget);
-      print("-------------------------------- APROVADO");
-    });
-  });
 
   testWidgets('Testando home (portugues)', (WidgetTester tester) async {
     await tester.runAsync(() async {

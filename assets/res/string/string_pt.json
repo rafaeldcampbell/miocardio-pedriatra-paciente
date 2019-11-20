@@ -17,12 +17,5 @@
     "askQuestion04" : "O que causa a inflamação no miocárdio?",
     "askAnswer04" : "Section 04", 
     "askQuestion05" : "O que é cardiopatia congênita?",
-    "askAnswer05" : "Section 05", 
-
-    "loginMailHint" : "Email",
-    "loginPasswordHint" : "Senha",
-    "loginButton" : "Entrar",
-    "loginWarningMailIncorrect" : "O email está incorreto!",
-    "loginWarningPasswordIncorrect" : "A senha está incorreta!",
-    "loginWarningBothIncorrect" : "O email e a senha estão incorretos!"
+    "askAnswer05" : "Section 05"
 }
