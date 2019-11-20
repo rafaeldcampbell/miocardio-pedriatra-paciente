@@ -39,6 +39,7 @@ void main() {
       //Busca e verifica o botão
       Finder button = find.text("Entrar");
       expect(button, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 
@@ -69,6 +70,7 @@ void main() {
       //Busca e verifica o botão
       Finder button = find.text("Sign in");
       expect(button, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 
@@ -93,6 +95,7 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Inicial');
       expect(pageTitle, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 
@@ -117,6 +120,7 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Home');
       expect(pageTitle, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 
@@ -158,6 +162,7 @@ void main() {
       //verifica texto da resposta
       Finder a2 = find.text("É a inflamação do músculo do coração, chamado de miocárdio. Esse músculo é responsável pela contração do coração e a inflamação prejudica a ação de bombeamento do sangue provocando arritmias e insuficiência cardíaca. Seu tempo de duração depende da causa da inflamação e do estado de saúde do paciente.");
       expect(a2, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 
@@ -199,6 +204,7 @@ void main() {
       //verifica texto da resposta
       Finder a2 = find.text("É a inflamação do músculo do coração, chamado de miocárdio. Esse músculo é responsável pela contração do coração e a inflamação prejudica a ação de bombeamento do sangue provocando arritmias e insuficiência cardíaca. Seu tempo de duração depende da causa da inflamação e do estado de saúde do paciente.");
       expect(a2, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 
@@ -223,6 +229,7 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Lembretes');
       expect(pageTitle, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 
@@ -247,6 +254,7 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Reminder');
       expect(pageTitle, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 
@@ -271,6 +279,7 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Informações');
       expect(pageTitle, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
   testWidgets('Testando info (ingles)', (WidgetTester tester) async {
@@ -294,6 +303,7 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Information');
       expect(pageTitle, findsOneWidget);
+      print("-------------------------------- APROVADO");
     });
   });
 }
