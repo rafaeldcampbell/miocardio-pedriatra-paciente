@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:miocardio_paciente/functions/localization.dart';
+import 'package:miocardio_paciente/main.dart';
 import 'package:miocardio_paciente/pages/home.dart';
 import 'package:miocardio_paciente/pages/info.dart';
 import 'package:miocardio_paciente/pages/questionsPage.dart';
@@ -243,4 +244,52 @@ void main() {
       print("-------------------------------- APROVADO");
     });
   });
+
+  testWidgets('Testando inicialização do sistema', (WidgetTester tester) async {
+    await tester.runAsync(() async {
+      Widget widget = MediaQuery(
+                                  data: MediaQueryData(),
+                                  child: MaterialApp(
+                                    localizationsDelegates: [
+                                      LocalizationDelegate(), 
+                                      GlobalMaterialLocalizations.delegate, 
+                                      GlobalWidgetsLocalizations.delegate,
+                                    ],
+                                    home: MyApp(),
+                                  ),
+                                );
+      // constroi o widget
+      await tester.pumpWidget(widget);
+      await tester.idle();
+      await tester.pumpAndSettle();
+
+      Finder findHomeButton = find.byKey(Key('navigationHome'));
+      Finder findAskButton = find.byKey(Key('navigationAsk'));
+      Finder findReminderButton = find.byKey(Key('navigationReminder'));
+      Finder findInfoButton = find.byKey(Key('navigationInfo'));
+      Finder navigationBar = find.byKey(Key("navigationBar"));
+
+      Finder pagetitleHome = find.byKey(Key("pagetitleHome"));
+      Finder pagetitleAsk = find.byKey(Key("pagetitleAsk"));
+      Finder pagetitleReminder = find.byKey(Key("pagetitleReminder"));
+      Finder pagetitleInfo = find.byKey(Key("pagetitleInfo"));
+    
+      // Busca o título e verifica se está em Home
+      expect(pagetitleHome, findsOneWidget);
+      expect(pagetitleAsk, findsNothing);
+      expect(pagetitleReminder, findsNothing);
+      expect(pagetitleInfo, findsNothing);
+
+      //procura a barra de navegação
+      expect(navigationBar, findsOneWidget);
+      
+      //procura todos os botões na barra de navegação
+      expect(findHomeButton, findsOneWidget);
+      expect(findAskButton, findsOneWidget);
+      expect(findReminderButton, findsOneWidget);
+      expect(findInfoButton, findsOneWidget);
+      print("-------------------------------- APROVADO");
+    });
+  });
+
 }
