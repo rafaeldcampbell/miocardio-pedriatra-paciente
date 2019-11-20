@@ -28,7 +28,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   test: ^1.6.1
-  gen_lang: 0.1.2
 
 
 # For information on the generic Dart part of this file, see the
