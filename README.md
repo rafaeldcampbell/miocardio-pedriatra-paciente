@@ -14,7 +14,7 @@ Do grupo original, composto por 6 integrantes, foram separados dois grupos de 3;
 * [Rafael](http://github.com/rafaeldcampbell)
 
 
-O projeto deste aplicativo inclui 3 principais componentes, que deverão ser desenvolvidos ao longo do projeto:
+O projeto deste aplicativo inclui 2 principais componentes, que deverão ser desenvolvidos ao longo do projeto:
 
 * **Lembrete**: permitir gerenciar medicações e receber notificações de lembrete.
 

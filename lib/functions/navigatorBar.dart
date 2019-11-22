@@ -3,7 +3,7 @@ import 'package:miocardio_paciente/pages/questionsPage.dart';
 import 'package:miocardio_paciente/pages/home.dart';
 import 'package:miocardio_paciente/pages/info.dart';
 import 'package:miocardio_paciente/pages/reminderPage.dart';
-import 'package:miocardio_paciente/localization.dart' show Localization;
+import 'package:miocardio_paciente/functions/localization.dart' show Localization;
 
 //Classe responsável somente pelo NavigationBottomBar
 //Essa classe chama a renderização das outras abas (classes states)
