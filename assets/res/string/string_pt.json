@@ -17,5 +17,19 @@
     "askQuestion04" : "O que a inflamação no miocárdio pode provocar?",
     "askAnswer04" : "A redução na capacidade de bombeamento do sangue pode acarretar no surgimento de arritmias cardíacas. Em casos mais complexos pode haver formação de coágulos no coração levando a um acidente vascular cerebral ou infarto.\n", 
     "askQuestion05" : "Quais exames podem ser subdiagnosticados?",
-    "askAnswer05" : "   * O hemograma é inespecífico e pode estar normal\n  * O ecocardiograma pode ser normal\n"
+    "askAnswer05" : "   * O hemograma é inespecífico e pode estar normal\n  * O ecocardiograma pode ser normal\n",
+
+    "infoSymptomsTitle": "Sintomas",
+    "infoActivitiesTitle": "Atividades",
+
+    "infoSymptomsText1": "Dificuldade para respirar",
+    "infoSymptomsText2": "Batimentos cardíacos acelerados",
+    "infoSymptomsText3": "Problemas em praticar atividades físicas",
+    
+    "infoActivitiesText1": "Beba bastante água",
+    "infoActivitiesText2": "Dormir 8 horas por dia",
+    "infoActivitiesText3": "Comer comidas saudáveis"
+    
+
+
 }

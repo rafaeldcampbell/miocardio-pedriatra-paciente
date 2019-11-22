@@ -284,6 +284,12 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Informações');
       expect(pageTitle, findsOneWidget);
+
+      // Verificando texto das tabs
+      Finder tabTitleSymptoms = find.text('Sintomas');
+      Finder tabTitleActivities = find.text('Atividades');
+      expect(tabTitleSymptoms, findsOneWidget);
+      expect(tabTitleActivities, findsOneWidget);
       print("-------------------------------- APROVADO");
     });
   });
@@ -308,6 +314,12 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Information');
       expect(pageTitle, findsOneWidget);
+
+      //verificando texto das tabs
+      Finder tabTitleSymptoms = find.text('Symptoms');
+      Finder tabTitleActivities = find.text('Activities');
+      expect(tabTitleSymptoms, findsOneWidget);
+      expect(tabTitleActivities, findsOneWidget);
       print("-------------------------------- APROVADO");
     });
   });

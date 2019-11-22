@@ -17,5 +17,16 @@
     "askQuestion04" : "What causes myocardial inflammation?",
     "askAnswer04" : "Reduced blood pumping capacity may lead to cardiac arrhythmias. In more complex cases there may be clot formation in the heart leading to a stroke or infarction.\n", 
     "askQuestion05" : "Which tests can be underdiagnosed?",
-    "askAnswer05" : "   * CBC is nonspecific and may be normal\n   * Echocardiogram may be normal\n"
+    "askAnswer05" : "   * CBC is nonspecific and may be normal\n   * Echocardiogram may be normal\n",
+
+    "infoSymptomsTitle": "Symptoms",
+    "infoActivitiesTitle": "Activities",
+
+    "infoSymptomsText1": "Trouble on breathing",
+    "infoSymptomsText2": "Fast heartbeat",
+    "infoSymptomsText3": "Trouble on practicing physical activities",
+    
+    "infoActivitiesText1": "Drink lots of water",
+    "infoActivitiesText2": "Sleep about 8 hour per day",
+    "infoActivitiesText3": "Eat healthy food"
 }
