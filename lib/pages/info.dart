@@ -19,6 +19,7 @@ class InfoState extends State<Info> {
     );
   }
 
+  // contem toda a informação do corpo da aplicação
   Widget bodyData(localization) =>
         DefaultTabController(
           length: 2,
@@ -38,6 +39,7 @@ class InfoState extends State<Info> {
           ),
         );
 
+  //retorna o título da tela
   Widget title(localization) =>
   Center(
     child: 
@@ -53,18 +55,86 @@ class InfoState extends State<Info> {
       ),
     );
 
+  // gerencia o ListView com as informações da tela de sintomas
   Widget pageSymptoms(localization) =>
     Scaffold(
       backgroundColor: Color.fromRGBO(253, 224, 224, 1),
+      body: ListView(
+        padding: const EdgeInsets.only(top: 10.0, bottom: 25.0),
+        children: 
+          getSymptomsData(localization),
+      )
     );
 
+  // gerencia o listView com as informaçoes da tela de atividade
   Widget pageActivities(localization) =>
     Scaffold(
       backgroundColor: Color.fromRGBO(253, 224, 224, 1),
     );
     
+  List<Widget> getSymptomsData(localization) => 
+    [
+      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("TEXTO")),
+      ];
+
 }
 
+
+
+
+
+//======================= CARD =======================================
+
+// contem a informação que será usada no card
+class CardInfo {
+  CardInfo(this.text);
+  final String text;
+}
+// descreve o componente visual do card
+class CardItem extends StatelessWidget {
+  const CardItem(this.cardInfo);
+
+  final CardInfo cardInfo;
+
+  //constroi o card
+  Widget _buildCard(CardInfo root) {
+    return new Container(
+        padding: EdgeInsets.only(top: 15.0, right: 20.0, left: 20.0),
+        child:
+          SizedBox(
+            width:  double.infinity,
+            height: 150.0,
+            child:
+              Card(
+                key: PageStorageKey<CardInfo>(root),
+                child: Text(root.text),
+              )
+          ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildCard(cardInfo);
+  }
+}
+
+
+
+
+
+
+// ============================ TAB =============================
+
+// é o componente que desenha as tabs com o fundo branco
 class WhiteTabBar extends Container implements PreferredSizeWidget {
   WhiteTabBar(this.localization){
     _tabBar = getTabBar(localization);
