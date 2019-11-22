@@ -70,21 +70,26 @@ class InfoState extends State<Info> {
   Widget pageActivities(localization) =>
     Scaffold(
       backgroundColor: Color.fromRGBO(253, 224, 224, 1),
+      body: ListView(
+        padding: const EdgeInsets.only(top: 10.0, bottom: 25.0),
+        children: 
+          getActivitiesData(localization),
+      )
     );
     
   List<Widget> getSymptomsData(localization) => 
     [
-      CardItem(CardInfo("TEXTO")),
-      CardItem(CardInfo("TEXTO")),
-      CardItem(CardInfo("TEXTO")),
-      CardItem(CardInfo("TEXTO")),
-      CardItem(CardInfo("TEXTO")),
-      CardItem(CardInfo("TEXTO")),
-      CardItem(CardInfo("TEXTO")),
-      CardItem(CardInfo("TEXTO")),
-      CardItem(CardInfo("TEXTO")),
+      CardItem(CardInfo("Dificuldade para respirar", Icons.insert_emoticon)),
+      CardItem(CardInfo("Batimentos cardíacos acelerados", Icons.insert_emoticon)),
+      CardItem(CardInfo("Problemas em praticar atividades físicas", Icons.insert_emoticon)),
       ];
 
+  List<Widget> getActivitiesData(localization) => 
+    [
+      CardItem(CardInfo("Beba bastante água", Icons.cloud)),
+      CardItem(CardInfo("Dormir 8 horas por dia", Icons.cloud)),
+      CardItem(CardInfo("Comer comidas saudáveis", Icons.cloud)),
+      ];
 }
 
 
@@ -95,8 +100,9 @@ class InfoState extends State<Info> {
 
 // contem a informação que será usada no card
 class CardInfo {
-  CardInfo(this.text);
+  CardInfo(this.text, this.icon);
   final String text;
+  final IconData icon;
 }
 // descreve o componente visual do card
 class CardItem extends StatelessWidget {
@@ -115,7 +121,18 @@ class CardItem extends StatelessWidget {
             child:
               Card(
                 key: PageStorageKey<CardInfo>(root),
-                child: Text(root.text),
+                child: 
+                Container(
+                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  child:
+                    Row(
+                      children: <Widget>[
+                        Icon(root.icon, size: 100, color: Color.fromRGBO(100, 100, 100, 0.4),),
+                        SizedBox(width: 15,),
+                        Flexible( child: Text(root.text, textAlign: TextAlign.center, style: TextStyle(fontSize:  20),))
+                        ],
+                      ),
+                )
               )
           ),
     );
