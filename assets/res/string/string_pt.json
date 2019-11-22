@@ -20,5 +20,16 @@
     "askAnswer05" : "   * O hemograma é inespecífico e pode estar normal\n  * O ecocardiograma pode ser normal\n",
 
     "infoSymptomsTitle": "Sintomas",
-    "infoActivitiesTitle": "Atividades"
+    "infoActivitiesTitle": "Atividades",
+
+    "infoSymptomsText1": "Dificuldade para respirar",
+    "infoSymptomsText2": "Batimentos cardíacos acelerados",
+    "infoSymptomsText3": "Problemas em praticar atividades físicas",
+    
+    "infoActivitiesText1": "Beba bastante água",
+    "infoActivitiesText2": "Dormir 8 horas por dia",
+    "infoActivitiesText3": "Comer comidas saudáveis"
+    
+
+
 }

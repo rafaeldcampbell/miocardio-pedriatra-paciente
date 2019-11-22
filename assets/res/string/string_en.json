@@ -20,5 +20,13 @@
     "askAnswer05" : "   * CBC is nonspecific and may be normal\n   * Echocardiogram may be normal\n",
 
     "infoSymptomsTitle": "Symptoms",
-    "infoActivitiesTitle": "Activities"
+    "infoActivitiesTitle": "Activities",
+
+    "infoSymptomsText1": "Trouble on breathing",
+    "infoSymptomsText2": "Fast heartbeat",
+    "infoSymptomsText3": "Trouble on practicing physical activities",
+    
+    "infoActivitiesText1": "Drink lots of water",
+    "infoActivitiesText2": "Sleep about 8 hour per day",
+    "infoActivitiesText3": "Eat healthy food"
 }

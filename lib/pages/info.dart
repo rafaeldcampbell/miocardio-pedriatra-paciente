@@ -77,18 +77,20 @@ class InfoState extends State<Info> {
       )
     );
     
+  // retorna a lista de cards para sintomas
   List<Widget> getSymptomsData(localization) => 
     [
-      CardItem(CardInfo("Dificuldade para respirar", Icons.insert_emoticon)),
-      CardItem(CardInfo("Batimentos cardíacos acelerados", Icons.insert_emoticon)),
-      CardItem(CardInfo("Problemas em praticar atividades físicas", Icons.insert_emoticon)),
+      CardItem(CardInfo(localization.trans('infoSymptomsText1'), Icons.insert_emoticon)),
+      CardItem(CardInfo(localization.trans('infoSymptomsText2'), Icons.insert_emoticon)),
+      CardItem(CardInfo(localization.trans('infoSymptomsText3'), Icons.insert_emoticon)),
       ];
 
+  // retorna a lista de cards para atividade
   List<Widget> getActivitiesData(localization) => 
     [
-      CardItem(CardInfo("Beba bastante água", Icons.cloud)),
-      CardItem(CardInfo("Dormir 8 horas por dia", Icons.cloud)),
-      CardItem(CardInfo("Comer comidas saudáveis", Icons.cloud)),
+      CardItem(CardInfo(localization.trans('infoActivitiesText1'), Icons.cloud)),
+      CardItem(CardInfo(localization.trans('infoActivitiesText2'), Icons.cloud)),
+      CardItem(CardInfo(localization.trans('infoActivitiesText3'), Icons.cloud)),
       ];
 }
 
