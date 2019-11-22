@@ -8,14 +8,14 @@
     "pagetitleReminder": "Reminder",
     "pagetitleInfo": "Information",
 
-    "askQuestion01" : "Qual a diferença entre miocardia e miocardite?",
-    "askAnswer01" : "Section 01", 
-    "askQuestion02" : "O que é miocardite?",
-    "askAnswer02" : "É a inflamação do músculo do coração, chamado de miocárdio. Esse músculo é responsável pela contração do coração e a inflamação prejudica a ação de bombeamento do sangue provocando arritmias e insuficiência cardíaca. Seu tempo de duração depende da causa da inflamação e do estado de saúde do paciente.", 
-    "askQuestion03" : "O que miocardiopatia isquêmica?",
-    "askAnswer03" : "Section 03", 
-    "askQuestion04" : "O que causa a inflamação no miocárdio?",
-    "askAnswer04" : "Section 04", 
-    "askQuestion05" : "O que é cardiopatia congênita?",
-    "askAnswer05" : "Section 05"
+    "askQuestion01" : "What is the relationship between myocarditis and children?",
+    "askAnswer01" : "Children with myocarditis are normal at birth (except in cases of intrauterine myocarditis), and have normal development and growth in childhood, beginning to show symptoms after a few days of nonspecific viral infection (such as flu or diarrhea).\n", 
+    "askQuestion02" : "What is myocarditis?",
+    "askAnswer02" : "It is inflammation of the heart muscle, called the myocardium. This muscle is responsible for the contraction of the heart and inflammation impairs the pumping action of the blood causing arrhythmias and heart failure. Its duration depends on the cause of the inflammation and the health of the patient.\n", 
+    "askQuestion03" : "What are the main causes?",
+    "askAnswer03" : "There is no determining cause and is usually due to a complication of infectious diseases caused by some viruses, bacteria, protozoa or fungi. They may be associated with medication use, autoimmune diseases, excessive alcohol and drug use.\n", 
+    "askQuestion04" : "What causes myocardial inflammation?",
+    "askAnswer04" : "Reduced blood pumping capacity may lead to cardiac arrhythmias. In more complex cases there may be clot formation in the heart leading to a stroke or infarction.\n", 
+    "askQuestion05" : "Which tests can be underdiagnosed?",
+    "askAnswer05" : "   * CBC is nonspecific and may be normal\n   * Echocardiogram may be normal\n"
 }
