@@ -26,7 +26,7 @@ class InfoState extends State<Info> {
             backgroundColor: Color.fromRGBO(253, 224, 224, 1),
             appBar: AppBar(
               backgroundColor: Color.fromRGBO(253, 224, 224, 1),
-              bottom: WhiteTabBar(),
+              bottom: WhiteTabBar(localization),
               title: title(localization),
             ),
             body: TabBarView(
@@ -66,18 +66,25 @@ class InfoState extends State<Info> {
 }
 
 class WhiteTabBar extends Container implements PreferredSizeWidget {
-  WhiteTabBar();
+  WhiteTabBar(this.localization){
+    _tabBar = getTabBar(localization);
+  }
+
+  final Localization localization;
   final Color _color = Color.fromRGBO(255, 255, 255, 1);
-  final TabBar _tabBar = TabBar(
-          labelStyle: TextStyle(fontSize: 19.0, fontWeight: FontWeight.bold),
-          indicatorColor: Color.fromRGBO(255, 100, 100, 1),
-          labelColor: Color.fromRGBO(0, 0, 0, 1),
-          unselectedLabelColor: Color.fromRGBO(0, 0, 0, 0.5),
-          tabs: [
-            Tab(text: "Sintomas"),
-            Tab(text: "Atividades"),
-          ],
-        );
+  TabBar _tabBar;
+
+  static TabBar getTabBar(localization) => 
+        TabBar(
+                labelStyle: TextStyle(fontSize: 19.0, fontWeight: FontWeight.bold),
+                indicatorColor: Color.fromRGBO(255, 100, 100, 1),
+                labelColor: Color.fromRGBO(0, 0, 0, 1),
+                unselectedLabelColor: Color.fromRGBO(0, 0, 0, 0.5),
+                tabs: [
+                  Tab(text: localization.trans('infoSymptomsTitle')),
+                  Tab(text: localization.trans('infoActivitiesTitle')),
+                ],
+              );
 
   @override
   Size get preferredSize => _tabBar.preferredSize;
