@@ -19,6 +19,6 @@
     "askQuestion05" : "Which tests can be underdiagnosed?",
     "askAnswer05" : "   * CBC is nonspecific and may be normal\n   * Echocardiogram may be normal\n",
 
-    "infoSymptomsTitle": "Sintomas",
-    "infoActivitiesTitle": "Atividades"
+    "infoSymptomsTitle": "Symptoms",
+    "infoActivitiesTitle": "Activities"
 }
