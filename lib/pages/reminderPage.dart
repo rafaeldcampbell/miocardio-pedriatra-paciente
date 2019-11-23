@@ -3,6 +3,7 @@ import 'package:miocardio_paciente/database/reminder.dart';
 import 'package:miocardio_paciente/functions/localization.dart'
     show Localization;
 import 'package:table_calendar/table_calendar.dart';
+import 'package:miocardio_paciente/components/cardReminder.dart';
 
 class ReminderPage extends StatefulWidget {
   ReminderPageState createState() => new ReminderPageState();
@@ -12,6 +13,7 @@ class ReminderPageState extends State<ReminderPage> {
   CalendarController _controller;
   Map<DateTime, List> _events;
   List<Reminder> _reminders;
+  String locale;
   
   @override
   void initState() {
@@ -23,15 +25,20 @@ class ReminderPageState extends State<ReminderPage> {
   @override
   Widget build(BuildContext context) {
     var localization = Localization.of(context);
+    //inicializando o local do dispositivo
+    bool isEmpty(String s) => s == null || s.isEmpty;
+    locale = Localizations.localeOf(context).languageCode.toString();
+    locale += isEmpty(Localizations.localeOf(context).countryCode) ? "" : "_" + Localizations.localeOf(context).countryCode.toString().toUpperCase();
+
     return Scaffold(
         backgroundColor: Color.fromRGBO(253, 224, 224, 1),
-        body: bodyData(localization));
+        body: bodyData(localization, context));
   }
 
-  Widget bodyData(localization){
+  Widget bodyData(localization, context){
     updateCards(DateTime.now()); //atualiza a informação dos cards
     List<Widget> _children = [calendar(localization)]; //adiciona o calendário aos componentes do corpo
-    List<Widget> remindersCard = getRemindersData();
+    List<Widget> remindersCard = getRemindersData(context);
     if(!(remindersCard == null || remindersCard.isEmpty)){
         var it = remindersCard.iterator;
         while (it.moveNext()) {
@@ -66,11 +73,6 @@ class ReminderPageState extends State<ReminderPage> {
 
   //Retorna o calendario da pagina
   Widget calendar(localization){
-    //captura a localização do dispositivo
-    bool isEmpty(String s) => s == null || s.isEmpty;
-    String locale = Localizations.localeOf(context).languageCode.toString();
-    locale += isEmpty(Localizations.localeOf(context).countryCode) ? "" : "_" + Localizations.localeOf(context).countryCode.toString().toUpperCase();
-
     return TableCalendar(
         key: Key("calendarKey"),
         locale: locale,
@@ -105,8 +107,32 @@ class ReminderPageState extends State<ReminderPage> {
         child: Text(date.day.toString(), style: TextStyle(color: Colors.white)),
       );
 
-  void updateCards(date){
+  void updateCards(DateTime date){
     //atualiza os lembretes em _reminders
+    Reminder r = Reminder(
+        id: 1,
+        name: 'Locartana potássica liquida em gotas',
+        dose: 1,
+        doseMetric: 'comprimido bem grande de muitos',
+        time: 1,
+        obs: 'Tomar em jejum de, no mínimo, 3 horas e depois tirar um cochilo de vinte minutos e depois voce',
+        begining: DateTime.now().millisecondsSinceEpoch,
+        end: DateTime.now().millisecondsSinceEpoch + 90000000,
+        currentDateTime: date.millisecondsSinceEpoch,
+    );
+
+    Reminder r2 = Reminder(
+        id: 1,
+        name: 'Locartana líquida',
+        dose: 50,
+        doseMetric: 'mL',
+        time: 1,
+        obs: 'Tomar em jejum',
+        begining: DateTime.now().millisecondsSinceEpoch,
+        end: DateTime.now().millisecondsSinceEpoch + 90000000,
+        currentDateTime: date.millisecondsSinceEpoch,
+    );
+    _reminders = [r, r2, r2];
   }
 
   void updateEvents(){
@@ -114,60 +140,12 @@ class ReminderPageState extends State<ReminderPage> {
     //carrega a lista de eventos
   }
 
-  List<Widget> getRemindersData(){
+  List<Widget> getRemindersData(BuildContext context){
     if(!(_reminders == null || _reminders.isEmpty)){
-      return _reminders.map((r) => CardReminderItem(CardReminder(r))).toList();
+      return _reminders.map((r) => CardReminderItem(CardReminder(r), locale, context)).toList();
     }
     return null;
   }
     
 
 }
-
-
-//======================= CARD =======================================
-
-// contem a informação que será usada no card
-class CardReminder {
-  CardReminder(this.reminder);
-  final Reminder reminder;
-}
-// descreve o componente visual do card
-class CardReminderItem extends StatelessWidget {
-  const CardReminderItem(this.cardReminder);
-
-  final CardReminder cardReminder;
-
-  //constroi o card
-  Widget _buildCard(CardReminder root) {
-    return new Container(
-        padding: EdgeInsets.only(top: 0.0, right: 7.0, left: 7.0, bottom: 6.0),
-        child:
-          SizedBox(
-            width:  double.infinity,
-            height: 150.0,
-            child:
-              Card(
-                key: PageStorageKey<CardReminder>(root),
-                child: 
-                Container(
-                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
-                  child:
-                    Row(
-                      children: <Widget>[
-                        
-                        ],
-                      ),
-                )
-              )
-          ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _buildCard(cardReminder);
-  }
-}
-
-
