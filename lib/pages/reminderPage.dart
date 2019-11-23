@@ -105,3 +105,51 @@ class ReminderPageState extends State<ReminderPage> {
     //carrega a lista de eventos
   }
 }
+
+//======================= CARD =======================================
+
+// contem a informação que será usada no card
+class CardReminder {
+  CardReminder(this.text, this.icon);
+  final String text;
+  final IconData icon;
+}
+// descreve o componente visual do card
+class CardReminderItem extends StatelessWidget {
+  const CardReminderItem(this.cardReminder);
+
+  final CardReminder cardReminder;
+
+  //constroi o card
+  Widget _buildCard(CardReminder root) {
+    return new Container(
+        padding: EdgeInsets.only(top: 15.0, right: 20.0, left: 20.0),
+        child:
+          SizedBox(
+            width:  double.infinity,
+            height: 150.0,
+            child:
+              Card(
+                key: PageStorageKey<CardReminder>(root),
+                child: 
+                Container(
+                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  child:
+                    Row(
+                      children: <Widget>[
+                        
+                        ],
+                      ),
+                )
+              )
+          ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildCard(cardReminder);
+  }
+}
+
+
