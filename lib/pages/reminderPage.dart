@@ -9,7 +9,10 @@ class ReminderPage extends StatefulWidget {
 
 class ReminderPageState extends State<ReminderPage> {
   CalendarController _controller;
+  Map<DateTime, List> _events;
 
+  bool isEmpty(String s) => s == null || s.isEmpty;
+  
   @override
   void initState() {
     super.initState();
@@ -49,24 +52,40 @@ class ReminderPageState extends State<ReminderPage> {
       );
 
   //Retorna o calendario da pagina
-  Widget calendar(localization) => TableCalendar(
+  Widget calendar(localization){
+    //captura a localização do dispositivo
+    bool isEmpty(String s) => s == null || s.isEmpty;
+    String locale = Localizations.localeOf(context).languageCode.toString();
+    locale += isEmpty(Localizations.localeOf(context).countryCode) ? "" : "_" + Localizations.localeOf(context).countryCode.toString().toUpperCase();
+    
+    //carregando eventos antes de criar o calendário
+    updateEvents();
+
+    return TableCalendar(
         key: Key("calendarKey"),
-        locale: 'pt_BR',
+        locale: locale,
         headerStyle: HeaderStyle(
           centerHeaderTitle: true,
           formatButtonVisible: false,
         ),
         calendarStyle: CalendarStyle(
           todayColor: Color.fromRGBO(249, 124, 124, 0.6),
+          markersColor: Color.fromRGBO(50, 50, 50, 0.5),
+          markersMaxAmount: 3,
         ),
         onDaySelected: (date, events) {
+          print(locale);
+          updateCards(date);
           setState(() {});
         },
         builders: CalendarBuilders(
             selectedDayBuilder: (context, date, events) => dayStyle(date, 1),
-            todayDayBuilder: (context, date, events) => dayStyle(date, 0.5)),
+            todayDayBuilder: (context, date, events) => dayStyle(date, 0.5)
+        ),
         calendarController: _controller,
+        events: _events,
       );
+  }
 
   //Estilo dos dias
   Widget dayStyle(date, double transparency) => Container(
@@ -76,4 +95,13 @@ class ReminderPageState extends State<ReminderPage> {
             borderRadius: BorderRadius.circular(4.0)),
         child: Text(date.day.toString(), style: TextStyle(color: Colors.white)),
       );
+
+  void updateCards(date){
+    //atualiza os lembretes
+  }
+
+  void updateEvents(){
+    _events = {};
+    //carrega a lista de eventos
+  }
 }
