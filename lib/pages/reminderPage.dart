@@ -4,7 +4,7 @@ import 'package:miocardio_paciente/functions/localization.dart'
 import 'package:table_calendar/table_calendar.dart';
 
 class ReminderPage extends StatefulWidget {
-  ReminderPageState createState() => ReminderPageState();
+  ReminderPageState createState() => new ReminderPageState();
 }
 
 class ReminderPageState extends State<ReminderPage> {
@@ -60,8 +60,7 @@ class ReminderPageState extends State<ReminderPage> {
           todayColor: Color.fromRGBO(249, 124, 124, 0.6),
         ),
         onDaySelected: (date, events) {
-          print(date.toString());
-          print(localization.locale.toString());
+          setState(() {});
         },
         builders: CalendarBuilders(
             selectedDayBuilder: (context, date, events) => dayStyle(date, 1),
