@@ -25,7 +25,6 @@ class CardReminderItem extends StatelessWidget {
             height: 170.0,
             child:
               Card(
-                key: PageStorageKey<CardReminder>(root),
                 child: 
                   Container(
                     padding: EdgeInsets.only(left: 15.0, right: 15.0, top:15.0, bottom: 15.0),
@@ -85,6 +84,7 @@ class CardReminderItem extends StatelessWidget {
 
   Widget getDateTimeString(string) => Center(
         child: Text(string,
+            key: Key("cardReminderTimeString"),
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.red,

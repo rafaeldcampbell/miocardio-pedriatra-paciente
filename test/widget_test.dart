@@ -223,7 +223,7 @@ void main() {
                                       GlobalMaterialLocalizations.delegate, 
                                       GlobalWidgetsLocalizations.delegate,
                                     ],
-                                    home: ReminderPage(),
+                                    home: ReminderPage(isTest: true,),
                                   ),
                                 );
       // constroi o widget
@@ -237,6 +237,7 @@ void main() {
       //Verifica a presenca do Calendario
       Finder calendar = find.byKey(Key("calendarKey"));
       expect(calendar, findsOneWidget);
+
       print("-------------------------------- APROVADO");
     });
   });
@@ -251,7 +252,7 @@ void main() {
                                       GlobalMaterialLocalizations.delegate, 
                                       GlobalWidgetsLocalizations.delegate,
                                     ],
-                                    home: ReminderPage(),
+                                    home: ReminderPage(isTest: true,),
                                   ),
                                 );
       // constroi o widget

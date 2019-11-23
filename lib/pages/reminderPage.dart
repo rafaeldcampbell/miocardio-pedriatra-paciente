@@ -6,20 +6,25 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:miocardio_paciente/components/cardReminder.dart';
 
 class ReminderPage extends StatefulWidget {
-  ReminderPageState createState() => new ReminderPageState();
+  ReminderPage({this.isTest = false});
+  bool isTest;
+  ReminderPageState createState() => new ReminderPageState(isTest : isTest == null ? false : isTest);
 }
 
 class ReminderPageState extends State<ReminderPage> {
+  ReminderPageState({this.isTest = false});
   CalendarController _controller;
   Map<DateTime, List> _events;
   List<Reminder> _reminders;
   String locale;
+  bool isTest;
   
   @override
   void initState() {
     super.initState();
     _controller = CalendarController();
     updateEvents(); //carregando eventos antes de criar o calendário
+    updateCards(DateTime.now()); //atualiza a informação dos cards
   }
 
   @override
@@ -36,7 +41,6 @@ class ReminderPageState extends State<ReminderPage> {
   }
 
   Widget bodyData(localization, context){
-    updateCards(DateTime.now()); //atualiza a informação dos cards
     List<Widget> _children = [calendar(localization)]; //adiciona o calendário aos componentes do corpo
     List<Widget> remindersCard = getRemindersData(context);
     if(!(remindersCard == null || remindersCard.isEmpty)){
@@ -109,30 +113,22 @@ class ReminderPageState extends State<ReminderPage> {
 
   void updateCards(DateTime date){
     //atualiza os lembretes em _reminders
-    Reminder r = Reminder(
-        id: 1,
-        name: 'Locartana potássica liquida em gotas',
-        dose: 1,
-        doseMetric: 'comprimido bem grande de muitos',
-        time: 1,
-        obs: 'Tomar em jejum de, no mínimo, 3 horas e depois tirar um cochilo de vinte minutos e depois voce',
-        begining: DateTime.now().millisecondsSinceEpoch,
-        end: DateTime.now().millisecondsSinceEpoch + 90000000,
-        currentDateTime: date.millisecondsSinceEpoch,
-    );
-
-    Reminder r2 = Reminder(
-        id: 1,
-        name: 'Locartana líquida',
-        dose: 50,
-        doseMetric: 'mL',
-        time: 1,
-        obs: 'Tomar em jejum',
-        begining: DateTime.now().millisecondsSinceEpoch,
-        end: DateTime.now().millisecondsSinceEpoch + 90000000,
-        currentDateTime: date.millisecondsSinceEpoch,
-    );
-    _reminders = [r, r2, r2];
+    if(this.isTest){
+      Reminder r1 = Reminder(
+          id: 1,
+          name: 'Medicamento 1',
+          dose: 1,
+          doseMetric: 'comprimido',
+          time: 1,
+          obs: 'Observação de administração do medicamento',
+          begining: DateTime.now().millisecondsSinceEpoch,
+          end: DateTime.now().millisecondsSinceEpoch + 90000000,
+          currentDateTime: date.millisecondsSinceEpoch,
+      );
+      _reminders = [r1];
+    }else{
+    _reminders = [];
+    }
   }
 
   void updateEvents(){
