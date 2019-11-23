@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miocardio_paciente/database/reminder.dart';
 import 'package:miocardio_paciente/functions/localization.dart'
     show Localization;
 import 'package:table_calendar/table_calendar.dart';
@@ -10,13 +11,13 @@ class ReminderPage extends StatefulWidget {
 class ReminderPageState extends State<ReminderPage> {
   CalendarController _controller;
   Map<DateTime, List> _events;
-
-  bool isEmpty(String s) => s == null || s.isEmpty;
+  List<Reminder> _reminders;
   
   @override
   void initState() {
     super.initState();
     _controller = CalendarController();
+    updateEvents(); //carregando eventos antes de criar o calendário
   }
 
   @override
@@ -27,7 +28,18 @@ class ReminderPageState extends State<ReminderPage> {
         body: bodyData(localization));
   }
 
-  Widget bodyData(localization) => Scaffold(
+  Widget bodyData(localization){
+    updateCards(DateTime.now()); //atualiza a informação dos cards
+    List<Widget> _children = [calendar(localization)]; //adiciona o calendário aos componentes do corpo
+    List<Widget> remindersCard = getRemindersData();
+    if(!(remindersCard == null || remindersCard.isEmpty)){
+        var it = remindersCard.iterator;
+        while (it.moveNext()) {
+          _children.add(it.current); //adiciona todos os cards
+        }
+    }
+
+    return Scaffold(
         backgroundColor: Color.fromRGBO(253, 224, 224, 1),
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(253, 224, 224, 1),
@@ -35,10 +47,11 @@ class ReminderPageState extends State<ReminderPage> {
           elevation: 0.0,
         ),
         body: ListView(
-          children: <Widget>[calendar(localization)],
+          children: _children,
         )
         
       );
+  }
 
   Widget title(localization) => Center(
         child: Text(localization.trans('pagetitleReminder'),
@@ -57,9 +70,6 @@ class ReminderPageState extends State<ReminderPage> {
     bool isEmpty(String s) => s == null || s.isEmpty;
     String locale = Localizations.localeOf(context).languageCode.toString();
     locale += isEmpty(Localizations.localeOf(context).countryCode) ? "" : "_" + Localizations.localeOf(context).countryCode.toString().toUpperCase();
-    
-    //carregando eventos antes de criar o calendário
-    updateEvents();
 
     return TableCalendar(
         key: Key("calendarKey"),
@@ -74,7 +84,6 @@ class ReminderPageState extends State<ReminderPage> {
           markersMaxAmount: 3,
         ),
         onDaySelected: (date, events) {
-          print(locale);
           updateCards(date);
           setState(() {});
         },
@@ -97,22 +106,31 @@ class ReminderPageState extends State<ReminderPage> {
       );
 
   void updateCards(date){
-    //atualiza os lembretes
+    //atualiza os lembretes em _reminders
   }
 
   void updateEvents(){
     _events = {};
     //carrega a lista de eventos
   }
+
+  List<Widget> getRemindersData(){
+    if(!(_reminders == null || _reminders.isEmpty)){
+      return _reminders.map((r) => CardReminderItem(CardReminder(r))).toList();
+    }
+    return null;
+  }
+    
+
 }
+
 
 //======================= CARD =======================================
 
 // contem a informação que será usada no card
 class CardReminder {
-  CardReminder(this.text, this.icon);
-  final String text;
-  final IconData icon;
+  CardReminder(this.reminder);
+  final Reminder reminder;
 }
 // descreve o componente visual do card
 class CardReminderItem extends StatelessWidget {
@@ -123,7 +141,7 @@ class CardReminderItem extends StatelessWidget {
   //constroi o card
   Widget _buildCard(CardReminder root) {
     return new Container(
-        padding: EdgeInsets.only(top: 15.0, right: 20.0, left: 20.0),
+        padding: EdgeInsets.only(top: 0.0, right: 7.0, left: 7.0, bottom: 6.0),
         child:
           SizedBox(
             width:  double.infinity,
