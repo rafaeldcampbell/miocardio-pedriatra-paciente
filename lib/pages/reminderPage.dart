@@ -29,12 +29,12 @@ class ReminderPageState extends State<ReminderPage> {
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(253, 224, 224, 1),
           title: title(localization),
+          elevation: 0.0,
         ),
-        body: Container(
-          child: Column(
-            children: <Widget>[calendar()],
-          ),
-        ),
+        body: ListView(
+          children: <Widget>[calendar(localization)],
+        )
+        
       );
 
   Widget title(localization) => Center(
@@ -48,11 +48,33 @@ class ReminderPageState extends State<ReminderPage> {
             )),
       );
 
- //Retorna o calendario da pagina
-  Widget calendar() => TableCalendar(
-        calendarStyle: CalendarStyle(
-          todayColor: Colors.purpleAccent,
+  //Retorna o calendario da pagina
+  Widget calendar(localization) => TableCalendar(
+        key: Key("calendarKey"),
+        locale: 'pt_BR',
+        headerStyle: HeaderStyle(
+          centerHeaderTitle: true,
+          formatButtonVisible: false,
         ),
+        calendarStyle: CalendarStyle(
+          todayColor: Color.fromRGBO(249, 124, 124, 0.6),
+        ),
+        onDaySelected: (date, events) {
+          print(date.toString());
+          print(localization.locale.toString());
+        },
+        builders: CalendarBuilders(
+            selectedDayBuilder: (context, date, events) => dayStyle(date, 1),
+            todayDayBuilder: (context, date, events) => dayStyle(date, 0.5)),
         calendarController: _controller,
+      );
+
+  //Estilo dos dias
+  Widget dayStyle(date, double transparency) => Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: Color.fromRGBO(249, 124, 124, transparency),
+            borderRadius: BorderRadius.circular(4.0)),
+        child: Text(date.day.toString(), style: TextStyle(color: Colors.white)),
       );
 }
