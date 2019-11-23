@@ -52,6 +52,7 @@ class DBConexion {
           "doseMetric TEXT,"
           "time INTEGER,"
           "timeMetric TEXT,"
+          "obs TEXT,"
           "begining INTEGER,"
           "end INTEGER,"
           ")"
