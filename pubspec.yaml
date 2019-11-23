@@ -22,6 +22,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_cupertino_localizations: ^1.0.1
+  table_calendar: ^2.2.1
   cupertino_icons: ^0.1.2
 
 dev_dependencies:

@@ -234,11 +234,14 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Lembretes');
       expect(pageTitle, findsOneWidget);
+      //Verifica a presenca do Calendario
+      Finder calendar = find.byKey(Key("calendarKey"));
+      expect(calendar, findsOneWidget);
       print("-------------------------------- APROVADO");
     });
   });
 
-  testWidgets('Testando reminder (portugues)', (WidgetTester tester) async {
+  testWidgets('Testando reminder (ingles)', (WidgetTester tester) async {
     await tester.runAsync(() async {
       Widget widget = MediaQuery(
                                   data: MediaQueryData(),
@@ -259,6 +262,10 @@ void main() {
       // Busca e verificando titulo
       Finder pageTitle = find.text('Reminder');
       expect(pageTitle, findsOneWidget);
+      
+      //Verifica a presenca do Calendario
+      Finder calendar = find.byKey(Key("calendarKey"));
+      expect(calendar, findsOneWidget);
       print("-------------------------------- APROVADO");
     });
   });
