@@ -298,9 +298,21 @@ void main() {
       Finder tabTitleActivities = find.text('Atividades');
       expect(tabTitleSymptoms, findsOneWidget);
       expect(tabTitleActivities, findsOneWidget);
+
+      // Verificando conteudo dos cards
+      Finder symptoms1 = find.text("Dor precordial aguda em qualquer idade acompanhada de: taquicardia, infecção ou febre");
+      expect(symptoms1, findsOneWidget);
+      Finder symptoms2 = find.text("Histórico de infecção viral nas últimas 2 a 4 semanas");
+      expect(symptoms2, findsOneWidget);
+      Finder symptoms3 = find.text("Aumento da área cardíaca");
+      expect(symptoms3, findsOneWidget);
+      Finder symptoms4 = find.text("Lactente com evolução de cansaço sem resposta à terapêutica para sibilância");
+      expect(symptoms4, findsOneWidget);
+      
       print("-------------------------------- APROVADO");
     });
   });
+  
   testWidgets('Testando info (ingles)', (WidgetTester tester) async {
     await tester.runAsync(() async {
       Widget widget = MediaQuery(
@@ -328,6 +340,17 @@ void main() {
       Finder tabTitleActivities = find.text('Activities');
       expect(tabTitleSymptoms, findsOneWidget);
       expect(tabTitleActivities, findsOneWidget);
+
+      // Verificando conteudo dos cards
+      Finder symptoms1 = find.text("Acute precordial pain at any age accompanied by: tachycardia, infection or fever");
+      expect(symptoms1, findsOneWidget);
+      Finder symptoms2 = find.text("History of viral infection in last 2 to 4 weeks");
+      expect(symptoms2, findsOneWidget);
+      Finder symptoms3 = find.text("Increased heart area");
+      expect(symptoms3, findsOneWidget);
+      Finder symptoms4 = find.text("Infant with tiredness progressing without response to wheezing therapy");
+      expect(symptoms4, findsOneWidget);
+
       print("-------------------------------- APROVADO");
     });
   });

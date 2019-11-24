@@ -80,9 +80,12 @@ class InfoState extends State<Info> {
   // retorna a lista de cards para sintomas
   List<Widget> getSymptomsData(localization) => 
     [
-      CardItem(CardInfo(localization.trans('infoSymptomsText1'), Icons.insert_emoticon)),
-      CardItem(CardInfo(localization.trans('infoSymptomsText2'), Icons.insert_emoticon)),
-      CardItem(CardInfo(localization.trans('infoSymptomsText3'), Icons.insert_emoticon)),
+      CardItem(CardInfo(localization.trans('infoSymptomsText1'), Icons.priority_high)),
+      CardItem(CardInfo(localization.trans('infoSymptomsText2'), Icons.calendar_today)),
+      CardItem(CardInfo(localization.trans('infoSymptomsText3'), Icons.favorite_border)),
+      CardItem(CardInfo(localization.trans('infoSymptomsText4'), Icons.child_care)),
+      CardItem(CardInfo(localization.trans('infoSymptomsText5'), Icons.hotel)),
+
       ];
 
   // retorna a lista de cards para atividade
@@ -119,7 +122,7 @@ class CardItem extends StatelessWidget {
         child:
           SizedBox(
             width:  double.infinity,
-            height: 150.0,
+            height: 115.0,
             child:
               Card(
                 key: PageStorageKey<CardInfo>(root),
@@ -129,9 +132,9 @@ class CardItem extends StatelessWidget {
                   child:
                     Row(
                       children: <Widget>[
-                        Icon(root.icon, size: 100, color: Color.fromRGBO(100, 100, 100, 0.4),),
+                        Icon(root.icon, size: 80, color: Color.fromRGBO(100, 100, 100, 0.4),),
                         SizedBox(width: 15,),
-                        Flexible( child: Text(root.text, textAlign: TextAlign.center, style: TextStyle(fontSize:  20),))
+                        Flexible( child: Text(root.text, textAlign: TextAlign.left, style: TextStyle(fontSize:  15),))
                         ],
                       ),
                 )
