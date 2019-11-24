@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:miocardio_paciente/database/reminder.dart';
 import 'package:miocardio_paciente/functions/localization.dart'
     show Localization;
+import 'package:miocardio_paciente/pages/addReminderPage.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:miocardio_paciente/components/cardReminder.dart';
 
@@ -49,6 +50,7 @@ class ReminderPageState extends State<ReminderPage> {
           _children.add(it.current); //adiciona todos os cards
         }
     }
+    _children.add(addReminderButton(localization));
 
     return Scaffold(
         backgroundColor: Color.fromRGBO(253, 224, 224, 1),
@@ -59,8 +61,7 @@ class ReminderPageState extends State<ReminderPage> {
         ),
         body: ListView(
           children: _children,
-        )
-        
+        ),
       );
   }
 
@@ -74,6 +75,32 @@ class ReminderPageState extends State<ReminderPage> {
               fontWeight: FontWeight.bold,
             )),
       );
+    
+    Widget addReminderButton(localization) => 
+    Column(
+      children: <Widget>[
+        MaterialButton( 
+          height: 50.0, 
+          minWidth: 200.0, 
+          shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(15.0),
+                      side: BorderSide(color: Color.fromRGBO(249, 124, 124, 1),)),
+          color: Color.fromRGBO(249, 124, 124, 0.3),
+          elevation: 0,
+          textColor: Colors.white,
+          child: Text(localization.trans("reminderAddButton"), style: TextStyle(color: Colors.black, fontSize: 20),),
+          onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => AddReminderPage()),
+                            ), 
+          splashColor: Colors.redAccent,
+          highlightColor: Color.fromRGBO(249, 124, 124, 0.3),
+          highlightElevation: 0,
+          ),
+          SizedBox(height: 10,)
+      ]
+    );
+    
 
   //Retorna o calendario da pagina
   Widget calendar(localization){

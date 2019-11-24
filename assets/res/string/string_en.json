@@ -6,6 +6,7 @@
     "pagetitleHome": "Home",
     "pagetitleAsk": "Questions & Answers",
     "pagetitleReminder": "Reminder",
+    "pagetitleAddReminder": "New reminder",
     "pagetitleInfo": "Information",
 
     "askQuestion01" : "What is the relationship between myocarditis and children?",
@@ -28,5 +29,7 @@
     
     "infoActivitiesText1": "Drink lots of water",
     "infoActivitiesText2": "Sleep about 8 hour per day",
-    "infoActivitiesText3": "Eat healthy food"
+    "infoActivitiesText3": "Eat healthy food",
+
+    "reminderAddButton": "Add reminder"
 }
