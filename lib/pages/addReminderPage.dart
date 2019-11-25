@@ -9,8 +9,22 @@ class AddReminderPage extends StatefulWidget {
 
 class AddReminderPageState extends State<AddReminderPage> {
 
-  TimeOfDay selectedTime = TimeOfDay.now();
-  DateTime selectedDay = DateTime.now();
+  DateFormat dateFormat = DateFormat("dd/MM/yyyy -- HH:mm");
+
+  TextEditingController nameController = new TextEditingController();
+  TextEditingController doseController = new TextEditingController();
+  TextEditingController doseMetricController = new TextEditingController();
+  TextEditingController timeIntervalController = new TextEditingController();
+  TextEditingController obsController = new TextEditingController();
+  TextEditingController beginController = new TextEditingController();
+  TextEditingController endController = new TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    beginController.text = dateFormat.format(DateTime.now());
+    endController.text = dateFormat.format(DateTime.now());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,24 +60,26 @@ class AddReminderPageState extends State<AddReminderPage> {
     ListView(
       padding: EdgeInsets.only(bottom: 15, top: 15, left: 20, right: 20),
       children: <Widget>[
-        editText("Nome", 1),
-        editTextNumber("Posologia"),
-        editText("Complemento da posologia", 1),
-        editTextNumber("Intervalo em horas"),
-        editText("Observação", 3),
-        addTimePicker("Início:  ", context),
-        addDayPicker("Início:  ", context),
-        addTimePicker("Fim:  ", context),
-        addDayPicker("Fim:  ", context),
+        editText("Nome", 1, nameController),
+        editTextNumber("Posologia", doseController),
+        editText("Complemento da posologia", 1, doseMetricController),
+        editTextNumber("Intervalo em horas", timeIntervalController),
+        editText("Observação", 3, obsController),
+        editText("Início", 1, beginController, readOnly: true),
+        addDayTimePicker(context, beginController),
+        editText("Fim", 1, endController, readOnly: true),
+        addDayTimePicker(context, endController),
         addReminderButton(localization)
       ],
     );
 
-  Widget editText(lable, maxLines) =>
+  Widget editText(lable, maxLines, controller, {readOnly = false}) =>
     Container(
       padding: EdgeInsets.only(top: 10, bottom: 10),
       child:
         TextField(
+          readOnly: readOnly,
+          controller: controller,
           maxLines: maxLines,
           decoration: 
             InputDecoration(
@@ -81,16 +97,39 @@ class AddReminderPageState extends State<AddReminderPage> {
           )
     );
 
-    Widget editTextNumber(lable) =>
+    Widget editTextNumber(lable, controller) =>
     Container(
       padding: EdgeInsets.only(top: 10, bottom: 10),
       child:
         TextField(
+          controller: controller,
           keyboardType: TextInputType.number,
           inputFormatters: 
             <TextInputFormatter>[
                 WhitelistingTextInputFormatter.digitsOnly
             ],
+          decoration: 
+            InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderSide: BorderSide(width: 1,color: Colors.redAccent),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(3)),
+                borderSide: BorderSide(width: 1,color: Colors.grey),
+              ),
+              labelText: lable,
+              labelStyle: TextStyle(color: Colors.black, fontSize: 15)
+            )
+          )
+    );
+
+  Widget editTextBlocked(lable, maxLines) =>
+    Container(
+      padding: EdgeInsets.only(top: 10, bottom: 10),
+      child:
+        TextField(
+          maxLines: maxLines,
           decoration: 
             InputDecoration(
               focusedBorder: OutlineInputBorder(
@@ -129,10 +168,11 @@ class AddReminderPageState extends State<AddReminderPage> {
       ]
     );
 
-  Future<Null> _selectDay(BuildContext context) async {
+  Future<Null> _selectDay(BuildContext context, TextEditingController dateText) async {
+    DateTime date = dateFormat.parse(dateText.text);
     final DateTime picked_d = await showDatePicker(
                                       context: context,
-                                      initialDate: DateTime.now(),
+                                      initialDate: date,
                                       firstDate: DateTime(2018),
                                       lastDate: DateTime(2030),
                                       builder: (BuildContext context, Widget child) {
@@ -142,43 +182,53 @@ class AddReminderPageState extends State<AddReminderPage> {
                                         );
                                       },
                                     );
-
-    if (picked_d != null && picked_d != selectedDay )
+    if (picked_d != null)
       setState(() {
-        selectedDay = picked_d;
+        dateText.text = dateFormat.format(DateTime(picked_d.year, picked_d.month, picked_d.day, date.hour, date.minute));
       });
   }
 
-  Future<Null> _selectTime(BuildContext context) async {
+  Future<Null> _selectTime(BuildContext context, TextEditingController dateText) async {
+    DateTime date = dateFormat.parse(dateText.text);
     final TimeOfDay picked_s = await showTimePicker(
         context: context,
-        initialTime: selectedTime, builder: (BuildContext context, Widget child) {
+        initialTime: TimeOfDay(hour: date.hour, minute: date.minute), builder: (BuildContext context, Widget child) {
             return MediaQuery(
               data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
               child: child,
             );});
-
-    if (picked_s != null && picked_s != selectedTime )
+    if (picked_s != null )
       setState(() {
-        selectedTime = picked_s;
+        dateText.text = dateFormat.format( DateTime(date.year, date.month, date.day, picked_s.hour, picked_s.minute) );
       });
   }
 
-  Widget addTimePicker(s, context) => 
+  Widget addDayTimePicker(context, date) =>
+    Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        addDayPicker(context, date),
+        SizedBox(width: 30,),
+        addTimePicker(context, date)
+      ],
+    );
+
+  Widget addTimePicker(context, date) => 
   Container(
       padding: EdgeInsets.only(top: 10, bottom: 10),
       child:
         MaterialButton( 
           height: 50.0, 
-          minWidth: 200.0, 
+          minWidth: 100.0, 
           shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(15.0),
                       side: BorderSide(color: Colors.grey,)),
           elevation: 0,
           textColor: Colors.white,
-          child: Text(s + selectedTime.format(context), style: TextStyle(color: Colors.black, fontSize: 20),),
+          child: Text("Horário", style: TextStyle(color: Colors.black, fontSize: 20),),
           onPressed: () {
-            _selectTime(context);
+            _selectTime(context, date);
           },
           splashColor: Colors.redAccent,
           highlightColor: Color.fromRGBO(249, 124, 124, 0.0),
@@ -186,21 +236,21 @@ class AddReminderPageState extends State<AddReminderPage> {
           )
   );
   
-  Widget addDayPicker(s, context) => 
+  Widget addDayPicker(context, date) => 
   Container(
       padding: EdgeInsets.only(top: 10, bottom: 10),
       child:
         MaterialButton( 
           height: 50.0, 
-          minWidth: 200.0, 
+          minWidth: 100.0, 
           shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(15.0),
                       side: BorderSide(color: Colors.grey,)),
           elevation: 0,
           textColor: Colors.white,
-          child: Text(s + DateFormat("dd/MM/yy").format(selectedDay), style: TextStyle(color: Colors.black, fontSize: 20),),
+          child: Text("Data", style: TextStyle(color: Colors.black, fontSize: 20),),
           onPressed: () {
-            _selectDay(context);
+            _selectDay(context, date);
           },
           splashColor: Colors.redAccent,
           highlightColor: Color.fromRGBO(249, 124, 124, 0.0),
