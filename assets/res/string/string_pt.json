@@ -6,6 +6,7 @@
     "pagetitleHome": "Inicial",
     "pagetitleAsk": "Perguntas Frequentes",
     "pagetitleReminder": "Lembretes",
+    "pagetitleAddReminder": "Novo lembrete",
     "pagetitleInfo": "Informações",
 
     "askQuestion01" : "Qual a relação entre a miocardite e as crianças?",
@@ -28,7 +29,9 @@
     
     "infoActivitiesText1": "Beba bastante água",
     "infoActivitiesText2": "Dormir 8 horas por dia",
-    "infoActivitiesText3": "Comer comidas saudáveis"
+    "infoActivitiesText3": "Comer comidas saudáveis",
+
+    "reminderAddButton": "Adicionar lembrete"
     
 
 
