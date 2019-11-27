@@ -23,9 +23,11 @@
     "infoSymptomsTitle": "Sintomas",
     "infoActivitiesTitle": "Atividades",
 
-    "infoSymptomsText1": "Dificuldade para respirar",
-    "infoSymptomsText2": "Batimentos cardíacos acelerados",
-    "infoSymptomsText3": "Problemas em praticar atividades físicas",
+    "infoSymptomsText1": "Dor precordial aguda em qualquer idade acompanhada de: taquicardia, infecção ou febre",
+    "infoSymptomsText2": "Histórico de infecção viral nas últimas 2 a 4 semanas",
+    "infoSymptomsText3": "Aumento da área cardíaca",
+    "infoSymptomsText4": "Lactente com evolução de cansaço sem resposta à terapêutica para sibilância",
+    "infoSymptomsText5": "Taquicardia mantida em repouso",
     
     "infoActivitiesText1": "Beba bastante água",
     "infoActivitiesText2": "Dormir 8 horas por dia",

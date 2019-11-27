@@ -23,9 +23,11 @@
     "infoSymptomsTitle": "Symptoms",
     "infoActivitiesTitle": "Activities",
 
-    "infoSymptomsText1": "Trouble on breathing",
-    "infoSymptomsText2": "Fast heartbeat",
-    "infoSymptomsText3": "Trouble on practicing physical activities",
+    "infoSymptomsText1": "Acute precordial pain at any age accompanied by: tachycardia, infection or fever",
+    "infoSymptomsText2": "History of viral infection in last 2 to 4 weeks",
+    "infoSymptomsText3": "Increased heart area",
+    "infoSymptomsText4": "Infant with tiredness progressing without response to wheezing therapy",
+    "infoSymptomsText5": "Resting tachycardia",
     
     "infoActivitiesText1": "Drink lots of water",
     "infoActivitiesText2": "Sleep about 8 hour per day",
